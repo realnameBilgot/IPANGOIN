@@ -16,6 +16,10 @@ function compareCard(yourCard, topCard){
     }
 }
 
+function newCard(){
+    let card = new Card
+}
+
 class Card{
     constructor(){
         this.number = randomCardNumber();
@@ -24,6 +28,7 @@ class Card{
         } else {
             this.color = cardColor()
         }
+        //this.id = toString(this.number) + this.color   Behövs det ens?
     }
 }
 
