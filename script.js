@@ -1,5 +1,7 @@
 let colorList = [red, blue, yellow, green]
 
+let cardStack = [newCard()]
+
 function cardNumber(){
     return Math.floor(Math.random * 15.5)
 }
@@ -11,8 +13,6 @@ function cardColor(){
 function compareCard(yourCard, topCard){
     if(yourCard.number === topCard.number || yourCard.color === topCard.color || yourCard.color === wildcard){
         placeCard()
-    }  else{
-        //jadu
     }
 }
 
