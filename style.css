@@ -1,4 +1,22 @@
-canvas{
+body{
+    width: 100%;
+    display: flex;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+h1{
+    width: 1vw;
+}
+
+#game{
     width: 900px;
-    height: 600px;
+    height: 500px;
+    background-image: url("Assets/background.png");
+
 }
