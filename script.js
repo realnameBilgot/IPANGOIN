@@ -21,6 +21,7 @@ const greenBase = document.getElementById("greenBase")
 const redBase = document.getElementById("redBase")
 const yellowBase = document.getElementById("yellowBase")
 const logo = document.getElementById("logo")
+const background = document.getElementById("background")
 
 let colorList = ['red', 'blue', 'yellow', 'green'];
 
@@ -47,6 +48,7 @@ class Card{
         } else {
             this.color = cardColor()
         }
+        //if(this     )
         //this.id = toString(this.number) + this.color   Behövs det ens?
     }
 }
@@ -59,8 +61,10 @@ let cardStack = [newCard()];
 let yourCards = [];
 let botCards = [];
 
-
+ctx.drawImage(logo, 110, 50, 75, 50);
 function startGame(){
+    ctx.drawImage(background, 0, 0, 300, 150,)
+    ctx.drawImage(logo, 5, 5, 30, 20);
     for(i=0; i<7; i++){
         yourCards.push(newCard())
         botCards.push(newCard())
@@ -69,3 +73,5 @@ function startGame(){
     console.log(botCards)
     console.log(yourCards[0])
 }
+
+
