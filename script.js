@@ -22,20 +22,6 @@ for(let number = 0; number < 10; number++){
 }
 
 
-
-// const draw2 = document.getElementById("draw2")
-// const stopNext = document.getElementById("stopNext")
-// const reverse = document.getElementById("reverse")
-// const wildDraw = document.getElementById("wildDraw")
-// const wild = document.getElementById("wild")
-// const cardBack = document.getElementById("cardBack")
-// const blueBase = document.getElementById("blueBase")
-// const greenBase = document.getElementById("greenBase")
-// const redBase = document.getElementById("redBase")
-// const yellowBase = document.getElementById("yellowBase")
-// const logo = document.getElementById("logo")
-// const background = document.getElementById("background")
-
 let colorList = ['red', 'blue', 'yellow', 'green'];
 
 function cardNumber(){
@@ -61,12 +47,6 @@ class Card{
         } else {
             this.color = cardColor()
         }
-
-        // for(i=0; i<10; i++){
-        //     if(this.number === i){               hur ska jag göra för att få cardNumber att bli varje sifferbild???? 
-        //         this.cardNumber = num + i
-        //     }
-        // }
         
         if(this.color === 'blue'){
             this.cardColor = images.blueBase
@@ -114,30 +94,43 @@ function startGame(){
         botCards.push(newCard())
     }
 
-    let logoXPos = 110;
-    let logoYPos = 50;
+    let logoXPosition = 110;
+    let logoYPosition = 50;
     let logoWidth = 75;
     let logoHeight = 50;
-    let deckXPos = -40;
-    let deckYPos = 60;
+    let deckXPosition = -40;
+    let deckYPosition = 60;
     let deckWidth = 40;
     let deckHeight = 40;
+    let firstCardXPosition = 39;
+    let firstCardWidth = 28;
 
     const drawBeginning = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ctx.drawImage(images.logo, logoXPos, logoYPos, logoWidth, logoHeight)
-        ctx.drawImage(images.deck, deckXPos, deckYPos, deckWidth, deckHeight)
-        ctx.drawImage(yourCards[0].cardColor, 40, 40, 40, 40)
-        ctx.drawImage(yourCards[0].cardImageSymbol, 40, 40, 40, 40)
-
-        logoXPos -= 2.2;
-        logoYPos -= 1;
-        logoWidth -= 0.5;
-        logoHeight -= 0.35;
-        deckXPos += 1.4;
+        ctx.drawImage(images.logo, logoXPosition, logoYPosition, logoWidth, logoHeight)
+        ctx.drawImage(images.deck, deckXPosition, deckYPosition, deckWidth, deckHeight)
 
 
-        if(logoXPos < 1 || logoYPos < 1) {
+        if(logoXPosition > 1){
+            logoXPosition -= 2.2;
+            logoYPosition -= 1;
+            logoWidth -= 0.5;
+            logoHeight -= 0.35;
+            deckXPosition += 1.4;
+        }
+
+        if(deckXPosition > 29 && firstCardWidth > 0){
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.drawImage(images.logo, logoXPosition, logoYPosition, logoWidth, logoHeight)
+            ctx.drawImage(images.deck, deckXPosition, deckYPosition, deckWidth, deckHeight)
+            ctx.drawImage(images.cardBack, firstCardXPosition, 60, firstCardWidth, 37)
+            firstCardXPosition += 2
+            firstCardWidth -= 1
+        }
+
+        
+
+        if(logoXPosition < 1) {
             return;
         }
     
