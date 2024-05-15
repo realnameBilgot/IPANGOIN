@@ -32,7 +32,25 @@ function cardColor(){
     return colorList[Math.floor(Math.random() * 4)]
 }
 
+let turnNumber = 1;
+
+function whosTurn(){
+    if(turnNumber % 2 === 0){
+        turnNumber +=1
+        return true
+    } else{
+        return false
+    }
+}
+
+function placeCard(){
+
+}
+
 function compareCard(yourCard, topCard){
+    if(!whosTurn()) {
+        return;
+    }
     if(yourCard.number === topCard.number || yourCard.color === topCard.color || yourCard.color === wildcard){
         placeCard()
     }
@@ -72,7 +90,6 @@ class Card{
             this.cardImageSymbol = images.wildDraw
         }
 
-        
     }
 }
 
@@ -80,19 +97,23 @@ function newCard(){
     return new Card
 }
 
-let cardStack = [newCard()];
+let cardStack = [];
 let yourCards = [];
 let botCards = [];
+
+cardStack.push(newCard())
+    
+for(i=0; i<7; i++){
+    yourCards.push(newCard())
+    botCards.push(newCard())
+}
 
 ctx.drawImage(images.logo, 110, 50, 75, 50);
 
 
 function startGame(){
 
-    for(i=0; i<7; i++){
-        yourCards.push(newCard())
-        botCards.push(newCard())
-    }
+    console.log(cardStack)
 
     let logoXPosition = 110;
     let logoYPosition = 50;
@@ -102,8 +123,12 @@ function startGame(){
     let deckYPosition = 60;
     let deckWidth = 40;
     let deckHeight = 40;
-    let firstCardXPosition = 39;
-    let firstCardWidth = 28;
+    let firstBackCardXPosition = 39;
+    let firstBackCardWidth = 28;
+    let firstCardXPosition = 100;
+    let firstCardWidth = 0;
+    let yourCardsYPosition = 140;
+    let botCardsYPosition = -30;
 
     const drawBeginning = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -119,22 +144,41 @@ function startGame(){
             deckXPosition += 1.4;
         }
 
-        if(deckXPosition > 29 && firstCardWidth > 0){
+        if(deckXPosition > 29 && firstBackCardWidth > 1){
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             ctx.drawImage(images.logo, logoXPosition, logoYPosition, logoWidth, logoHeight)
             ctx.drawImage(images.deck, deckXPosition, deckYPosition, deckWidth, deckHeight)
-            ctx.drawImage(images.cardBack, firstCardXPosition, 60, firstCardWidth, 37)
-            firstCardXPosition += 2
-            firstCardWidth -= 1
+            ctx.drawImage(images.cardBack, firstBackCardXPosition, 60, firstBackCardWidth, 37)
+            firstBackCardXPosition += 2.4
+            firstBackCardWidth -= 1.2
         }
 
-        if(firstCardWidth < 1){
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
-            ctx.drawImage(images.logo, logoXPosition, logoYPosition, logoWidth, logoHeight)
-            ctx.drawImage(images.deck, deckXPosition, deckYPosition, deckWidth, deckHeight)
-            ctx.drawImage(cardStack[0])
+        if(firstBackCardWidth < 2 && firstCardXPosition > 72){
+            firstCardXPosition -= 2.4
+            firstCardWidth += 2.4
         }
-    
+
+        ctx.drawImage(cardStack[cardStack.length - 1].cardColor, firstCardXPosition, 60, firstCardWidth, 37)
+        ctx.drawImage(cardStack[cardStack.length - 1].cardImageSymbol, firstCardXPosition, 60, firstCardWidth, 37)
+
+
+        if(yourCardsYPosition > 105){
+            yourCardsYPosition -= 1;
+        }
+        for(cardAmount = 0; cardAmount < yourCards.length; cardAmount++){
+            ctx.drawImage(yourCards[cardAmount].cardColor, 5 + 30 * cardAmount, yourCardsYPosition, 28, 37)
+            ctx.drawImage(yourCards[cardAmount].cardImageSymbol, 5 + 30 * cardAmount, yourCardsYPosition, 28, 37)
+        }
+
+        if(botCardsYPosition < 30){
+            botCardsYPosition += 1;
+        }
+        for(botCardsAmount = 0; botCardsAmount < botCards.length; botCardsAmount++){
+            ctx.drawImage(images.cardBack, 80 + 20 * botCardsAmount, botCardsYPosition, 18, 25)
+        }
+
+        
+
         requestAnimationFrame(drawBeginning);
     }
 
