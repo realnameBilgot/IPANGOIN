@@ -128,10 +128,11 @@ function startGame(){
             firstCardWidth -= 1
         }
 
-        
-
-        if(logoXPosition < 1) {
-            return;
+        if(firstCardWidth < 1){
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.drawImage(images.logo, logoXPosition, logoYPosition, logoWidth, logoHeight)
+            ctx.drawImage(images.deck, deckXPosition, deckYPosition, deckWidth, deckHeight)
+            ctx.drawImage(cardStack[0])
         }
     
         requestAnimationFrame(drawBeginning);
