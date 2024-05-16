@@ -15,25 +15,38 @@
 
     <article>
         <h1>Spelwebbplatsen</h1>
-        <canvas id="game"></canvas>
-        <button onclick="startGame()">Start UNO</button>
+        <div id="cardContainer">
+            <canvas id="game"></canvas>
+            <div id="cardDeckArea"></div>
+            <div id="cardArea0"></div>
+            <div id="cardArea1"></div>
+            <div id="cardArea2"></div>
+            <div id="cardArea3"></div>
+            <div id="cardArea4"></div>
+            <div id="cardArea5"></div>
+            <div id="cardArea6"></div>
+            <div id="cardArea7"></div>
+            <div id="cardArea8"></div>
+            <div id="cardArea9"></div>
+        </div>
+        <button id="startButton">Start UNO</button>
     </article>
 
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num0" src="Assets/_0.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num1" src="Assets/_1.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num2" src="Assets/_2.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num3" src="Assets/_3.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num4" src="Assets/_4.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num5" src="Assets/_5.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num6" src="Assets/_6.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num7" src="Assets/_7.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num8" src="Assets/_8.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="num9" src="Assets/_9.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="draw2" src="Assets/_draw2.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="stopNext" src="Assets/_interdit.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="reverse" src="Assets/_revers.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="wildDraw" src="Assets/_wild_draw.png" alt="">
-    <img onclick="compareCard(this, cardStack[cardStack.length - 1])" id="wild" src="Assets/_wild.png" alt="">
+    <img id="num0" src="Assets/_0.png" alt="">
+    <img id="num1" src="Assets/_1.png" alt="">
+    <img id="num2" src="Assets/_2.png" alt="">
+    <img id="num3" src="Assets/_3.png" alt="">
+    <img id="num4" src="Assets/_4.png" alt="">
+    <img id="num5" src="Assets/_5.png" alt="">
+    <img id="num6" src="Assets/_6.png" alt="">
+    <img id="num7" src="Assets/_7.png" alt="">
+    <img id="num8" src="Assets/_8.png" alt="">
+    <img id="num9" src="Assets/_9.png" alt="">
+    <img id="draw2" src="Assets/_draw2.png" alt="">
+    <img id="stopNext" src="Assets/_interdit.png" alt="">
+    <img id="reverse" src="Assets/_revers.png" alt="">
+    <img id="wildDraw" src="Assets/_wild_draw.png" alt="">
+    <img id="wild" src="Assets/_wild.png" alt="">
 
     <img id="cardBack" src="Assets/back.png" alt="">
     <img id="blueBase" src="Assets/blue_base.png" alt="">

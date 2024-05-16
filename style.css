@@ -22,6 +22,36 @@ img{
     width: 900px;
     height: 500px;
     background-image: url("Assets/background.png");
-
 }
 
+
+#cardArea0, #cardArea1, #cardArea2, #cardArea3, #cardArea4, #cardArea5, #cardArea6, #cardArea7, #cardArea8, #cardArea9 {
+    position:absolute; 
+    z-index: 1000;
+    top:420px;
+    min-width: 88px;
+    min-height: 130px;
+}
+
+#cardArea0 {left: 185px;}
+
+#cardArea1 {left: 275px;}
+
+#cardArea2 {left: 365px;}
+
+#cardArea3 {left: 455px}
+
+#cardArea4 {left: 545px;}
+
+#cardArea5 {left: 635px;}
+
+#cardArea6 {left: 725px;}
+
+#cardArea7 {left: 815px;}
+
+#cardArea8 {left: 905px;}
+
+#cardArea9 {
+    left: 995px;
+    min-width: 75px;
+}
