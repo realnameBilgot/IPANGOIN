@@ -24,6 +24,14 @@ img{
     background-image: url("Assets/background.png");
 }
 
+#cardDeckArea {
+    position: absolute;
+    z-index: 1000;
+    min-width: 120px;
+    min-height: 140px;
+    top: 275px;
+    left: 260px;
+}
 
 #cardArea0, #cardArea1, #cardArea2, #cardArea3, #cardArea4, #cardArea5, #cardArea6, #cardArea7, #cardArea8, #cardArea9 {
     position:absolute; 

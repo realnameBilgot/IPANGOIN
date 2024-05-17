@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(event) {
+let turnNumber = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
     document.getElementById('startButton').addEventListener('click', startGame);
@@ -29,23 +31,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
     let colorList = ['red', 'blue', 'yellow', 'green'];
     
     function cardNumber(){
-        return Math.floor(Math.random() * 14)
+        return Math.floor(Math.random() * 13.5)
     }
     
     function cardColor(){
         return colorList[Math.floor(Math.random() * 4)]
     }
     
-    let turnNumber = 1;
     
-    function whosTurn(){
-        if(turnNumber % 2 === 0){
-            turnNumber +=1
-            return true
-        } else{
-            return false
-        }
-    }
     
     function findIndexByProperties(array, color, number) {
         for (let i = 0; i < array.length; i++) {
@@ -56,14 +49,59 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
 
-    
-    function placeCard(card){
-        let removedCard = yourCards.splice(findIndexByProperties(yourCards, card.color, card.number), 1)
-        yourCards = yourCards.flat()
-        console.log(removedCard, yourCards)
-        cardStack.push(removedCard)
-        
+    function placeYourCard(card, array){//så mycket extra för att det blev error pga 
+        let removedCardIndex = findIndexByProperties(array, card.color, card.number);
+        if (removedCardIndex!== -1) {
+            let removedCard = array.splice(removedCardIndex, 1)[0];
+            array = [...array];
+            cardStack.push(removedCard);
+            if(card.number === 10){
+                botCards.push(newCard())
+                botCards.push(newCard())
+            } else if(card.number === 13){
+                botCards.push(newCard())
+                botCards.push(newCard())
+                botCards.push(newCard())
+                botCards.push(newCard())
+            }
+            turnNumber +=1
+        }
     }
+
+
+
+    function placeBotCard(){
+        for(let i = 0; i < botCards.length; i++){
+            if(botCards[i].number === cardStack[cardStack.length - 1].number ||
+               botCards[i].color === cardStack[cardStack.length - 1].color ||
+               botCards[i].cardImageSymbol === wildDraw ||
+               botCards[i].cardImageSymbol === wild || cardStack[cardStack.length - 1].cardImageSymbol === wildDraw || cardStack[cardStack.length - 1] === wild) {
+                
+                let playedCard = botCards.splice(i, 1)[0];
+    
+                cardStack.push(playedCard);
+    
+                
+                if(botCards[i].number === 10){
+                    yourCards.push(newCard())
+                    yourCards.push(newCard())
+                } else if(botCards[i].number === 13){
+                    yourCards.push(newCard())
+                    yourCards.push(newCard())
+                    yourCards.push(newCard())
+                    yourCards.push(newCard())
+                }
+
+                turnNumber += 1;
+    
+                break;
+            }
+        if(yourTurn() === false){
+            botCards.push(newCard())
+        }
+        }
+    }
+
     
     
     
@@ -120,27 +158,71 @@ document.addEventListener('DOMContentLoaded', function(event) {
     
     ctx.drawImage(images.logo, 110, 50, 75, 50);
     
-    function compareCard(yourCard, topCard){
-        if(!whosTurn()) {
-            return;
+
+    function yourTurn(){
+        if(turnNumber % 2 === 0){
+            console.log('min tur')
+            return true
+        } else{
+            console.log('din tur')
+            return false
         }
-        if(yourCard.number === topCard.number || yourCard.color === topCard.color || yourCard.color === 'wildcard'){
-            placeCard(yourCard)
+    }
+
+    function compareCard(theCard, topCard){
+        if(!yourTurn()) {
+           return;
+        }
+        if(theCard.number === topCard.number || theCard.color === topCard.color || theCard.cardImageSymbol === wildDraw || theCard.cardImageSymbol === wild  || topCard.cardImageSymbol === wildDraw ||topCard.cardImageSymbol === wild){
+            if(theCard.number === 10 || theCard.number === 11 || theCard.number === 13){
+                turnNumber -= 1
+            }
+            return true;
         }
     }   
+
+    function checkIfPlaceableCardInItsHand(array){
+        let PlaceableCard = false;
+        for(i=0; array.length>i; i++){
+            if(compareCard(array[i], cardStack[cardStack.length - 1]) === true){
+                PlaceableCard = true
+                break;
+            }
+        }
+        return PlaceableCard
+    }
+
+    cardDeckArea.addEventListener('click', function() {
+        console.log(botCards)
+        if(!checkIfPlaceableCardInItsHand(yourCards)){
+            yourCards.push(newCard())
+        }
+    })
 
     const cardAreas = document.querySelectorAll('#cardContainer div[id^="cardArea"]');
     cardAreas.forEach(function(cardArea) {
         cardArea.addEventListener('click', function() {
             console.log("den klick")
             const index = parseInt(this.id.replace('cardArea', ''), 10);
-            compareCard(yourCards[index], cardStack[cardStack.length - 1]);
+            if(compareCard(yourCards[index], cardStack[cardStack.length - 1]) === true){
+                placeYourCard(yourCards[index], yourCards)
+            }
         });
     });
 
-    
+    setInterval(function(){
+        if(yourTurn() === false){
+            if(checkIfPlaceableCardInItsHand(botCards)){
+                botCards.push(newCard())
+            } else {
+                placeBotCard()
+            }
+        }
+    }, 2000)
+
+
     function startGame(){
-    
+
     
         let logoXPosition = 110;
         let logoYPosition = 50;
@@ -157,9 +239,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
         let yourCardsYPosition = 140;
         let botCardsYPosition = -30;
     
-        const drawGame = () => {
+        const Game = () => {
             yourCards.flat()
             botCards.flat()
+
+            if(!yourTurn){    
+                cardDeckArea.style.display === "none"
+            } else {
+                cardDeckArea.style.display === "block"
+            }
     
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             ctx.drawImage(images.logo, logoXPosition, logoYPosition, logoWidth, logoHeight)
@@ -208,11 +296,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 ctx.drawImage(images.cardBack, 80 + 20 * botCardsAmount, botCardsYPosition, 18, 25)
             }
             
-            requestAnimationFrame(drawGame);
+            requestAnimationFrame(Game);
         }
     
     
-        drawGame();
+        Game();
     
     }
 })
