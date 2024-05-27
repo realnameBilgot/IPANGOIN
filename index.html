@@ -6,15 +6,20 @@
     <title>Spelwebbplatsen</title>
     
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poetsen+One&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#artikel">Artikel</a></li>
-                <li><a href="#index">Home</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-                <li><a href="profil.html">Profil</a></li>
+                <li><a class="poetsen-one-regular" href="artikel.html">Artikel</a></li>
+                <li><a class="poetsen-one-regular" href="index.html">Home</a></li>
+                <li><a class="poetsen-one-regular" href="kontakt.html">Kontakt</a></li>
             </ul>
         </nav>
         <div class="dropdown">
@@ -27,41 +32,47 @@
         </div>
     </header>
     <main>
-        <h1 id="indexHeader">Spelwebbplatsen</h1>
-        <div id="cardContainer">
-            <canvas id="game"></canvas>
-            <div id="cardDeckArea"></div>
-            <div id="cardArea0"></div>
-            <div id="cardArea1"></div>
-            <div id="cardArea2"></div>
-            <div id="cardArea3"></div>
-            <div id="cardArea4"></div>
-            <div id="cardArea5"></div>
-            <div id="cardArea6"></div>
-            <div id="cardArea7"></div>
-            <div id="cardArea8"></div>
-            <div id="cardArea9"></div>
-        </div>
-        <button id="startButton">Start UNO</button>
+        <section>
+            <h1 class="animate__animated animate__swing bebas-neue-regular" id="indexHeader">
+                Spelwebbplatsen</h1>
+        </section>
+        <section>
+            <div id="cardContainer">
+                <canvas id="game"></canvas>
+                <div id="cardDeckArea"></div>
+                <div id="cardArea0"></div>
+                <div id="cardArea1"></div>
+                <div id="cardArea2"></div>
+                <div id="cardArea3"></div>
+                <div id="cardArea4"></div>
+                <div id="cardArea5"></div>
+                <div id="cardArea6"></div>
+                <div id="cardArea7"></div>
+                <div id="cardArea8"></div>
+                <div id="cardArea9"></div>
+            </div>
+            <button id="startButton">Start UNO</button>
+        </section>
     </main>
 
-    <img id="num0" src="Assets/_0.png" alt="">
-    <img id="num1" src="Assets/_1.png" alt="">
-    <img id="num2" src="Assets/_2.png" alt="">
-    <img id="num3" src="Assets/_3.png" alt="">
-    <img id="num4" src="Assets/_4.png" alt="">
-    <img id="num5" src="Assets/_5.png" alt="">
-    <img id="num6" src="Assets/_6.png" alt="">
-    <img id="num7" src="Assets/_7.png" alt="">
-    <img id="num8" src="Assets/_8.png" alt="">
-    <img id="num9" src="Assets/_9.png" alt="">
-    <img id="draw2" src="Assets/_draw2.png" alt="">
-    <img id="stopNext" src="Assets/_interdit.png" alt="">
-    <img id="reverse" src="Assets/_revers.png" alt="">
-    <img id="wildDraw" src="Assets/_wild_draw.png" alt="">
-    <img id="wild" src="Assets/_wild.png" alt="">
+    <img id="num0" src="Assets/_0.png" alt="Siffran 0 i UNO">
+    <img id="num1" src="Assets/_1.png" alt="Siffran 1 i UNO">
+    <img id="num2" src="Assets/_2.png" alt="Siffran 2 i UNO">
+    <img id="num3" src="Assets/_3.png" alt="Siffran 3 i UNO">
+    <img id="num4" src="Assets/_4.png" alt="Siffran 4 i UNO">
+    <img id="num5" src="Assets/_5.png" alt="Siffran 5 i UNO">
+    <img id="num6" src="Assets/_6.png" alt="Siffran 6 i UNO">
+    <img id="num7" src="Assets/_7.png" alt="Siffran 7 i UNO">
+    <img id="num8" src="Assets/_8.png" alt="Siffran 8 i UNO">
+    <img id="num9" src="Assets/_9.png" alt="Siffran 9 i UNO">
 
-    <img id="cardBack" src="Assets/back.png" alt="">
+    <img id="draw2" src="Assets/_draw2.png" alt="Plocka upp 2 i UNO">
+    <img id="stopNext" src="Assets/_interdit.png" alt="Stop i UNO">
+    <img id="reverse" src="Assets/_revers.png" alt="Vända håll i UNO">
+    <img id="wildDraw" src="Assets/_wild_draw.png" alt="Plocka upp 4 i UNO">
+    <img id="wild" src="Assets/_wild.png" alt="Välj färg i UNO">
+
+    <img id="cardBack" src="Assets/back.png" alt="UNO ">
     <img id="blueBase" src="Assets/blue_base.png" alt="">
     <img id="greenBase" src="Assets/green_base.png" alt="">
     <img id="redBase" src="Assets/red_base.png" alt="">

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     dropbtn.addEventListener('click', function(event) {
         event.stopPropagation();
-        console.log('Login klickar')
         dropdownContent.style.display = dropdownContent.style.display === 'none'? 'block' : 'none';
     });
 

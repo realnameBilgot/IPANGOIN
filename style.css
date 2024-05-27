@@ -1,30 +1,30 @@
 body{
-    width: 100%;
+    width: 1;
+    background-color: #31363F;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    background-color: #222831;
 }
 
 nav{
-    background-color: rgb(57, 53, 60);
     flex-grow: 1;
 }
 
 nav ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     justify-content: space-around;
 }
 
 nav ul li {
     display: inline-block;
-    margin-right: 10px;
 }
 
 nav ul li a {
@@ -32,16 +32,23 @@ nav ul li a {
     color: white;
 }
 
+.poetsen-one-regular {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 .dropdown {
-    position: relative;
+    position: absolute;
     display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
+    left: 82vw;
+    top: 2.5vw;
+    background-color: aliceblue;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -62,8 +69,8 @@ nav ul li a {
 }
 
 .dropdown-content button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ff0000;
+    color: #ffffff;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -72,16 +79,19 @@ nav ul li a {
 }
 
 .dropdown-content button:hover {
-    background-color: #45a049;
+    background-color: #ff0000;
 }
 
 .dropbtn {
     position: absolute;
-    background-color: inherit;
+    top: 1.5vw;
+    left: 94vw;
+    background-color: #222831;
+    border-radius: 10%;
     font-size: 16px;
     border: none;
     outline: none;
-    color: rgb(0, 0, 0);
+    color: #ffffff;
     padding: 14px 16px;
     cursor: pointer;
 }
@@ -97,6 +107,17 @@ main {
     align-items: center;
 }
 
+#indexHeader {
+    color: white;
+    
+}
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 img{
     display: none;
 }
@@ -105,7 +126,6 @@ img{
     width: 900px;
     height: 500px;
     background-image: url("Assets/background.png");
-    border-radius: 3%;
 }
 
 #cardDeckArea {
@@ -113,37 +133,37 @@ img{
     z-index: 1000;
     min-width: 120px;
     min-height: 140px;
-    top: 320px;
-    left: 350px;
+    top: 355px;
+    left: 345px;
 }
 
 #cardArea0, #cardArea1, #cardArea2, #cardArea3, #cardArea4, #cardArea5, #cardArea6, #cardArea7, #cardArea8, #cardArea9 {
     position:absolute; 
     z-index: 1000;
-    top:470px;
+    top:505px;
     min-width: 88px;
     min-height: 130px;
 }
 
-#cardArea0 {left: 275px;}
+#cardArea0 {left: 270px;}
 
-#cardArea1 {left: 365px;}
+#cardArea1 {left: 360px;}
 
-#cardArea2 {left: 455px;}
+#cardArea2 {left: 450px;}
 
-#cardArea3 {left: 545px}
+#cardArea3 {left: 540px}
 
-#cardArea4 {left: 635px;}
+#cardArea4 {left: 630px;}
 
-#cardArea5 {left: 725px;}
+#cardArea5 {left: 720px;}
 
-#cardArea6 {left: 815px;}
+#cardArea6 {left: 810px;}
 
-#cardArea7 {left: 905px;}
+#cardArea7 {left: 900px;}
 
-#cardArea8 {left: 995px;}
+#cardArea8 {left: 990px;}
 
 #cardArea9 {
-    left: 1085px;
+    left: 1080px;
     min-width: 75px;
 }
