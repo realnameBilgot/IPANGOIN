@@ -1,17 +1,100 @@
 body{
     width: 100%;
-    display: flex;
 }
 
-article{
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav{
+    background-color: rgb(57, 53, 60);
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover.dropdown-content {
+    display: block;
+}
+
+.dropdown-content input[type=text],
+.dropdown-content input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.dropdown-content button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dropdown-content button:hover {
+    background-color: #45a049;
+}
+
+.dropbtn {
+    position: absolute;
+    background-color: inherit;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.dropdown:hover.dropdown-content {
+    display: block;
+}
+
+main {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
-}
-
-h1{
-    width: 1vw;
+    align-items: center;
 }
 
 img{
@@ -22,6 +105,7 @@ img{
     width: 900px;
     height: 500px;
     background-image: url("Assets/background.png");
+    border-radius: 3%;
 }
 
 #cardDeckArea {
@@ -29,37 +113,37 @@ img{
     z-index: 1000;
     min-width: 120px;
     min-height: 140px;
-    top: 275px;
-    left: 260px;
+    top: 320px;
+    left: 350px;
 }
 
 #cardArea0, #cardArea1, #cardArea2, #cardArea3, #cardArea4, #cardArea5, #cardArea6, #cardArea7, #cardArea8, #cardArea9 {
     position:absolute; 
     z-index: 1000;
-    top:420px;
+    top:470px;
     min-width: 88px;
     min-height: 130px;
 }
 
-#cardArea0 {left: 185px;}
+#cardArea0 {left: 275px;}
 
-#cardArea1 {left: 275px;}
+#cardArea1 {left: 365px;}
 
-#cardArea2 {left: 365px;}
+#cardArea2 {left: 455px;}
 
-#cardArea3 {left: 455px}
+#cardArea3 {left: 545px}
 
-#cardArea4 {left: 545px;}
+#cardArea4 {left: 635px;}
 
-#cardArea5 {left: 635px;}
+#cardArea5 {left: 725px;}
 
-#cardArea6 {left: 725px;}
+#cardArea6 {left: 815px;}
 
-#cardArea7 {left: 815px;}
+#cardArea7 {left: 905px;}
 
-#cardArea8 {left: 905px;}
+#cardArea8 {left: 995px;}
 
 #cardArea9 {
-    left: 995px;
+    left: 1085px;
     min-width: 75px;
 }

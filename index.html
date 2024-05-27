@@ -8,13 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="index.html">Spelwebbplatsen</a>
-    </nav>
-
-    <article>
-        <h1>Spelwebbplatsen</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#index">Home</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="profil.html">Profil</a></li>
+            </ul>
+        </nav>
+        <div class="dropdown">
+            <button class="dropbtn">Login</button>
+            <div class="dropdown-content">
+                <input type="text" id="usernameInput" placeholder="Username" />
+                <input type="password" id="passwordInput" placeholder="Password" />
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1 id="indexHeader">Spelwebbplatsen</h1>
         <div id="cardContainer">
             <canvas id="game"></canvas>
             <div id="cardDeckArea"></div>
@@ -30,7 +43,7 @@
             <div id="cardArea9"></div>
         </div>
         <button id="startButton">Start UNO</button>
-    </article>
+    </main>
 
     <img id="num0" src="Assets/_0.png" alt="">
     <img id="num1" src="Assets/_1.png" alt="">
@@ -56,7 +69,7 @@
     <img id="logo" src="Assets/logo.png" alt="">
     <img id="background" src="Assets/background.png" alt="">
     <img id="deck" src="Assets/deck.png" alt="">
-
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>

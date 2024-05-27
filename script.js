@@ -1,6 +1,16 @@
 let turnNumber = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
+    var dropbtn = document.querySelector('.dropbtn');
+    var dropdownContent = document.querySelector('.dropdown-content');
+    
+    dropbtn.addEventListener('click', function(event) {
+        event.stopPropagation();
+        console.log('Login klickar')
+        dropdownContent.style.display = dropdownContent.style.display === 'none'? 'block' : 'none';
+    });
+
+
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
     document.getElementById('startButton').addEventListener('click', startGame);
@@ -101,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         }
     }
-
+ 
     
     
     
@@ -161,10 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function yourTurn(){
         if(turnNumber % 2 === 0){
-            console.log('min tur')
             return true
         } else{
-            console.log('din tur')
             return false
         }
     }
@@ -193,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     cardDeckArea.addEventListener('click', function() {
-        console.log(botCards)
         if(!checkIfPlaceableCardInItsHand(yourCards)){
             yourCards.push(newCard())
         }
@@ -202,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardAreas = document.querySelectorAll('#cardContainer div[id^="cardArea"]');
     cardAreas.forEach(function(cardArea) {
         cardArea.addEventListener('click', function() {
-            console.log("den klick")
             const index = parseInt(this.id.replace('cardArea', ''), 10);
             if(compareCard(yourCards[index], cardStack[cardStack.length - 1]) === true){
                 placeYourCard(yourCards[index], yourCards)
