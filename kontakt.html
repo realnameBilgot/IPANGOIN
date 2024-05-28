@@ -3,9 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kontakt sida</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poetsen+One&display=swap" 
+    rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <ul>
+                <li><a class="bebas-neue-regular" href="artikel.html">Artikel</a></li>
+                <li><a class="bebas-neue-regular" href="index.html">Home</a></li>
+                <li><a class="bebas-neue-regular" href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="dropdown">
+            <button class="dropbtn bebas-neue-regular">Login</button>
+            <div class="dropdown-content">
+                <input type="text" id="usernameInput" placeholder="Username" />
+                <input type="password" id="passwordInput" placeholder="Password" />
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </header>
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <label>Email:</label>
+            <input id="email" required>
+            
+            <label>Subject:</label>
+            <input id="subject" required>
+            
+            <label>Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+            
+            <button>Send Message</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

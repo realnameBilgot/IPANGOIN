@@ -173,26 +173,26 @@ buttonContainer {
     min-height: 130px;
 }
 
-#cardArea0 {left: 270px;}
+#cardArea0 {left: 8vw;}
 
-#cardArea1 {left: 360px;}
+#cardArea1 {left: 16vw;}
 
-#cardArea2 {left: 450px;}
+#cardArea2 {left: 25vw;}
 
-#cardArea3 {left: 540px}
+#cardArea3 {left: 34vw}
 
-#cardArea4 {left: 630px;}
+#cardArea4 {left: 42vw;}
 
-#cardArea5 {left: 720px;}
+#cardArea5 {left: 51vw;}
 
-#cardArea6 {left: 810px;}
+#cardArea6 {left: 60vw;}
 
-#cardArea7 {left: 900px;}
+#cardArea7 {left: 68vw;}
 
-#cardArea8 {left: 990px;}
+#cardArea8 {left: 77vw;}
 
 #cardArea9 {
-    left: 1080px;
+    left: 87vw;
     min-width: 75px;
 }
 
@@ -214,4 +214,109 @@ th, td {
 
 tfoot {
     column-span: 3;
+}
+
+/* Kontakt sida */
+
+.contact-form {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: #333;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 20px;
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+#resolutionWarning {
+    color: #ffffff;
+}
+
+@media screen and (max-width:959px){
+    #game,.dropdown {
+        display: none;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        font-size: larger;
+    }
+
+    #highscoreHeader {
+        font-size: x-large;
+    }
+
+    table {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+}
+
+@media screen and (min-width:1281px){
+    #game,.dropdown {
+        display: none!important;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        font-size: larger;
+    }
+
+    #highscoreHeader {
+        font-size: x-large;
+    }
+
+    table {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    th, td {
+        padding: 15px;
+    }
 }

@@ -22,6 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownContent.classList.toggle('show');
     }})
 
+    function updateResolutionWarning() {
+        const gameElement = document.getElementById('game');
+        const warningElement = document.getElementById('resolutionWarning');
+
+        if (window.innerWidth < 960) {
+            gameElement.style.display = 'none';
+            warningElement.textContent = "Can't run UNO on this resolution";
+        } else if (window.innerWidth > 1281){
+            gameElement.style.display = 'none';
+            warningElement.textContent = "Can't run UNO on this resolution";
+        } else {
+            gameElement.style.display = 'block'; 
+            warningElement.textContent = '';
+        }
+    }
+
+    updateResolutionWarning();
+
+    window.addEventListener('resize', updateResolutionWarning);
+
 
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
