@@ -1,13 +1,26 @@
 let turnNumber = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
-    var dropbtn = document.querySelector('.dropbtn');
-    var dropdownContent = document.querySelector('.dropdown-content');
-    
-    dropbtn.addEventListener('click', function(event) {
-        event.stopPropagation();
-        dropdownContent.style.display = dropdownContent.style.display === 'none'? 'block' : 'none';
+
+    document.querySelector('.dropbtn').addEventListener('click', function() {
+        var dropdownContent = document.querySelector('.dropdown-content');
+        dropdownContent.classList.toggle('show');
     });
+
+    function handleTransitionEnd() {
+        if (!dropdownContent.classList.contains('show')) {
+            dropdownContent.removeEventListener('transitionend', handleTransitionEnd);
+            dropdownContent.style.display = 'none';
+        }
+    }
+
+    document.querySelector('.dropbtn').addEventListener('click', function(){
+
+        if (dropdownContent.classList.contains('show')) {
+            dropdownContent.addEventListener('transitionend', handleTransitionEnd);
+        } else {
+            dropdownContent.classList.toggle('show');
+    }})
 
 
     const canvas = document.getElementById('game');

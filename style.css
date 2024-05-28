@@ -1,9 +1,7 @@
 body{
-    width: 1;
+    overflow-x: hidden;
     background-color: #31363F;
     margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 header {
@@ -44,18 +42,25 @@ nav ul li a {
 }
 
 .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
-    left: 82vw;
-    top: 2.5vw;
-    background-color: aliceblue;
+    border-radius: 3%;
+    left: 80vw;
+    top: 2vw;
+    background-color: #13293a;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    transform: translateX(200%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-.dropdown:hover.dropdown-content {
-    display: block;
+.dropdown-content.show {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
 }
 
 .dropdown-content input[type=text],
@@ -64,12 +69,12 @@ nav ul li a {
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
-    border: 1px solid #ccc;
+    border: 1px solid #01204E;
     box-sizing: border-box;
 }
 
 .dropdown-content button {
-    background-color: #ff0000;
+    background-color: #372461;
     color: #ffffff;
     padding: 14px 20px;
     margin: 8px 0;
@@ -79,13 +84,13 @@ nav ul li a {
 }
 
 .dropdown-content button:hover {
-    background-color: #ff0000;
+    background-color: #19430d;
 }
 
 .dropbtn {
     position: absolute;
     top: 1.5vw;
-    left: 94vw;
+    left: 93vw;
     background-color: #222831;
     border-radius: 10%;
     font-size: 16px;
@@ -109,7 +114,7 @@ main {
 
 #indexHeader {
     color: white;
-    
+    font-size: xx-large ;
 }
 
 .bebas-neue-regular {
@@ -126,6 +131,29 @@ img{
     width: 900px;
     height: 500px;
     background-image: url("Assets/background.png");
+}
+
+#startButton {
+    justify-self: center;
+    background-color: #222;
+    color: #fff;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #000;
+}
+
+#startButton:hover {
+    background-color: #151515;
+    color: #fff;
+}
+
+buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #cardDeckArea {
@@ -166,4 +194,24 @@ img{
 #cardArea9 {
     left: 1080px;
     min-width: 75px;
+}
+
+#highscoreHeader {
+    color: #ffffff;
+    margin: 40px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: #ffffff;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+tfoot {
+    column-span: 3;
 }
