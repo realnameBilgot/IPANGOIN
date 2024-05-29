@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth < 960) {
             gameElement.style.display = 'none';
             warningElement.textContent = "Can't run UNO on this resolution";
-        } else if (window.innerWidth > 1281){
+        } else if (window.innerWidth > 1280){
             gameElement.style.display = 'none';
             warningElement.textContent = "Can't run UNO on this resolution";
         } else {

@@ -45,8 +45,8 @@ nav ul li a {
     display: block;
     position: absolute;
     border-radius: 3%;
-    left: 80vw;
-    top: 2vw;
+    left: 81vw;
+    top: 6vw;
     background-color: #13293a;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -88,12 +88,14 @@ nav ul li a {
 }
 
 .dropbtn {
+    justify-self: left;
     position: absolute;
+    width: 7vw;
     top: 1.5vw;
-    left: 93vw;
+    left: 92vw;
     background-color: #222831;
     border-radius: 10%;
-    font-size: 16px;
+    font-size: 20px;
     border: none;
     outline: none;
     color: #ffffff;
@@ -104,6 +106,19 @@ nav ul li a {
 .dropdown:hover.dropdown-content {
     display: block;
 }
+
+footer {
+    background-color: #222831;
+    color: white;
+    text-align: center;
+    padding: 1vh;
+}
+
+.footer-content {
+    margin: 20px auto;
+}
+
+/* Index.html */
 
 main {
     padding-top: 20px;
@@ -150,7 +165,7 @@ img{
     color: #fff;
 }
 
-buttonContainer {
+#buttonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -201,12 +216,22 @@ buttonContainer {
     margin: 40px;
 }
 
-tr:nth-child(odd) {
-    background-color: #f2f2f2;
+
+tr:first-child{
+    background-color: white;
+    color: black;
 }
-tr:nth-child(even) {
-    background-color: #ffffff;
+.row2 {
+    background-color: yellow;
 }
+.row3 {
+    background-color: red;
+}
+.row4 {
+    background-color: blue;
+    color: white;
+}
+
 th, td {
     padding: 10px;
     text-align: left;
@@ -216,7 +241,7 @@ tfoot {
     column-span: 3;
 }
 
-/* Kontakt sida */
+/* kontakt.html */
 
 .contact-form {
     width: 80%;
@@ -261,9 +286,54 @@ tfoot {
     background-color: #0056b3;
 }
 
-#resolutionWarning {
-    color: #ffffff;
+#contactMessage {
+    visibility: hidden;
+    color: #000000;
 }
+
+/* Hero/artikel.html */
+
+.hero {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    padding: 50px 0;
+    justify-content: center;
+    background-image: url(Images/UNOHERO2.jpg);
+    background-size: cover;
+}
+
+#heroPhrase {
+    font-size: 100px;
+    font-weight: 400;
+    margin: 0;
+    color: #ffffff;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+.heroInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.heroInfo table {
+    width: 100%;
+    border: 5px solid #222831;
+}
+
+.heroInfo th {
+    font-size: xx-large;
+}
+
+.heroInfo th,.heroInfo td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 5px solid #222831;
+}
+
+/* Responsivitet fixning */
 
 @media screen and (max-width:959px){
     #game,.dropdown {

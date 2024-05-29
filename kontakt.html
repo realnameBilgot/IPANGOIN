@@ -29,21 +29,32 @@
             </div>
         </div>
     </header>
-    <div class="contact-form">
-        <h2>Contact Us</h2>
-        <form>
-            <label>Email:</label>
-            <input id="email" required>
-            
-            <label>Subject:</label>
-            <input id="subject" required>
-            
-            <label>Message:</label>
-            <textarea id="message" rows="4" required></textarea>
-            
-            <button>Send Message</button>
-        </form>
-    </div>
-    <script src="script.js"></script>
+    <main>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form>
+                <label>Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label>Subject:</label>
+                <input type="text" id="subject" name="subject"required>
+                
+                <label>Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button onclick="showSubmitMessage()">Send Message</button>
+    
+                <p id="contactMessage">Message has been sent</p>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Contact us:</p>
+            <p >Phone Number: 076 969 69 69</p>
+            <p>Email: <a href="mailto:vilgot.marken@skola.taby.se">vilgot.marken@skola.taby.se</a></p>
+        </div>
+    </footer>
+    <script src="webscript.js"></script>
 </body>
 </html>
